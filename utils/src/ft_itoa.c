@@ -38,7 +38,7 @@ static void	ft_putnbr_stock(long n, char *str, int *i)
 		str[(*i)++] = n + '0';
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n)
 {
 	char	*str;
 	int		i;

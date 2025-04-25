@@ -31,7 +31,8 @@ SRCS	= 	./src/ft_isalpha.c ./src/ft_isdigit.c ./src/ft_isalnum.c ./src/ft_isasci
 			./src/ft_putstr_fd.c ./src/ft_putendl_fd.c ./src/ft_putnbr_fd.c \
 			./src/get_next_line_bonus.c ./src/get_next_line_utils_bonus.c \
 			./src/ft_addr.c ./src/ft_hex.c ./src/ft_int.c ./src/ft_print_chr.c \
-			./src/ft_printf.c ./src/ft_strcmp.c ./src/ft_atof.c
+			./src/ft_printf.c ./src/ft_strcmp.c ./src/ft_atof.c ./src/ft_strjoin_va.c \
+			./src/ft_strconcat.c
 			
 			
 OBJS	= $(SRCS:.c=.o)
@@ -50,10 +51,12 @@ $(NAME):	$(OBJS)
 			$(LIB2) $(NAME)
 
 bonus:		$(NAME) $(BONUS_O)
+			@printf "\033[0;32mLBFT: \033[0;33mCreating library Bonus...\033[0m\n"
 			$(LIB1) $(NAME) $(BONUS_O)
 			$(LIB2) $(NAME)
 
 %.o : %.c
+			@printf "Compiling: $<\n"
 			$(CC) -I ../ -c $< -o $(<:.c=.o)
 
 clean:
